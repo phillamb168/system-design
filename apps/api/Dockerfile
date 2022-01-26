@@ -1,12 +1,15 @@
 # Stuck with 3.7 due to psycopg2
-FROM python:3.7-slim AS builder
+FROM python:3.7-alpine AS builder
 WORKDIR /opt/api
 COPY ./ .
+RUN apk add postgresql-libs
+RUN apk add --virtual .build-deps gcc musl-dev postgresql-dev g++
 RUN pip install -r requirements-dev.txt
-RUN pytest
 
-FROM python:3.7-slim
+FROM python:3.7-alpine
 WORKDIR /opt/api
+RUN apk add postgresql-libs
+RUN apk add --virtual .build-deps gcc musl-dev postgresql-dev g++
 COPY ./quipper/ ./quipper/
 COPY ./setup.py .
 RUN pip install .

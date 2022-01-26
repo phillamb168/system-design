@@ -10,11 +10,11 @@ registry=$(terraform -chdir=../../terraform output -raw registry_${component})
 db_endpoint=$(terraform -chdir=../../terraform output -raw db_endpoint)
 image_version="$(date +%s)"
 
-docker build -t ${component} .
+podman build -t ${component} .
 
-docker tag ${component} $registry:$image_version
+podman tag ${component} $registry:$image_version
 
 cd -
 echo $image_version > tmp/latest-image-version-${component}
 
-docker push $registry:$image_version
+podman push $registry:$image_version
