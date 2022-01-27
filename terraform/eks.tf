@@ -152,6 +152,7 @@ resource "aws_eks_node_group" "k8s" {
   cluster_name    = aws_eks_cluster.k8s.name
   node_group_name = var.cluster_name
   node_role_arn   = aws_iam_role.k8s_node_group.arn
+  ami_type        = "AL2_ARM_64"
   instance_types  = var.k8s_node_instance_types
   subnet_ids = [
     aws_subnet.private_subnet1.id,
