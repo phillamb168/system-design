@@ -22,7 +22,7 @@ tmp/last-deployment-api: apps/api/api.yaml tmp/last-build-api
 .PHONY : frontend
 frontend: tmp/last-build-frontend tmp/last-deployment-frontend
 
-tmp/last-build-frontend: apps/frontend/Dockerfile apps/frontend/*.jpg apps/frontend/index.html
+tmp/last-build-frontend: apps/frontend/Dockerfile apps/frontend/src/*
 	@scripts/build frontend
 	@touch tmp/last-build-frontend
 
