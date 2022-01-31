@@ -44,11 +44,10 @@ def get_health():
     return {"healthy": True}
 
 
-@app.post("/messages/", status_code=201)
+@app.route("/messages/", methods=["POST"])
 def post_message(message: schemas.MessageCreate,
                  db: Session = Depends(get_db)):
     services.create_message(db=db, message=message)
-
 
 @app.get("/conversations/{conversation_id}",
          response_model=schemas.Conversation)

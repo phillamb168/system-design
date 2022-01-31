@@ -19,7 +19,7 @@ class Message(Base):
     __tablename__ = "messages"
 
     id = Column(Integer, primary_key=True, index=True)
-    sender = Column(String, unique=False, index=False)
-    conversation_id = Column(String, unique=False, index=True)
-    message = Column(String, unique=False, index=False)
+    sender = Column(String(255), unique=False, index=False)
+    conversation_id = Column(String(255), unique=False, index=True)
+    message = Column(String(255), unique=False, index=False)
     created_at = Column(DateTime, default=datetime.utcnow)

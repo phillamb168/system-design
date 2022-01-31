@@ -8,6 +8,7 @@ requirements = [
     'pydantic==1.8.2',
     'starlette==0.14.2',
     'uvicorn==0.13.4',
+    'PyMySQL==1.0.2',
 ]
 
 setup(name="quipper",

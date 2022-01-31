@@ -31,8 +31,8 @@ resource "aws_security_group" "database" {
 
   ingress {
     description = "Incoming access"
-    from_port   = 5432
-    to_port     = 5432
+    from_port   = 3306
+    to_port     = 3306
     protocol    = "tcp"
     cidr_blocks = [
       var.vpc_private_subnet1_cidr,
