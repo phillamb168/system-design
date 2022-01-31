@@ -77,8 +77,8 @@ db_creds_secret_file=${secrets_dir}/${cluster_name}-db-creds.json
 
 cat > $db_creds_secret_file <<EOF
 {
-    "db_user": "SU_$(uuidgen | tr -d '-')",
-    "db_pass": "$(uuidgen)"
+    "db_user": "SU_$(LC_ALL=C tr -dc A-Za-z0-9 </dev/urandom | head -c 12)",
+    "db_pass": "$(LC_ALL=C tr -dc A-Za-z0-9 </dev/urandom | head -c 16)"
 }
 EOF
 chmod 0600 $db_creds_secret_file
