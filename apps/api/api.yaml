@@ -24,19 +24,19 @@ spec:
         ports:
         - containerPort: 80
         env:
-        - name: POSTGRES_URL
+        - name: MYSQL_URL
           value: DB_ENDPOINT
-        - name: POSTGRES_DB
+        - name: MYSQL_DB
           value: DB_NAME
-        - name: POSTGRES_USER
+        - name: MYSQL_USER
           valueFrom:
             secretKeyRef:
-              name: postgres-credentials
+              name: mysql-credentials
               key: db_user
-        - name: POSTGRES_PASS
+        - name: MYSQL_PASS
           valueFrom:
             secretKeyRef:
-              name: postgres-credentials
+              name: mysql-credentials
               key: db_pass
 ---
 apiVersion: v1

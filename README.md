@@ -360,7 +360,7 @@ you want something more robus, see [this guide](https://docs.aws.amazon.com/secr
 ```
 cluster_name=$(terraform -chdir=terraform output -raw cluster_name)
 
-kubectl create secret generic postgres-credentials \
+kubectl create secret generic mysql-credentials \
   -n system-design \
   --from-env-file <(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" ~/.relaxdiego/system-design/secrets/${cluster_name}-db-creds.json)
 ```

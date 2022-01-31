@@ -68,7 +68,7 @@ variable "vpc_private_subnet2_cidr" {
 variable "db_engine" {
   description = "The underlying database engine to use"
   type        = string
-  default     = "postgres"
+  default     = "mariadb"
 }
 
 variable "db_instance_class" {
